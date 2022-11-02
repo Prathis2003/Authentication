@@ -1,7 +1,10 @@
+import 'package:authentication/SignIn.dart';
 import 'package:authentication/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'SignInButton.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,21 +17,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Auth();
     return MaterialApp(
+      
       home: SafeArea(
+        
         child: Scaffold(
-          appBar: AppBar(
-            title: Text("Auth"),
-          ),
-          body: Column(
-            children: [
-              ElevatedButton.icon(
-                  onPressed: auth.googleSignIn,
-                  icon: Icon(Icons.sign_language),
-                  label: Text("Sign In with Google"))
-            ],
-          ),
+          body: SignInButton(),
         ),
       ),
     );
