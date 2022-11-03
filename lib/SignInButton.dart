@@ -7,22 +7,27 @@ class SignInButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () async {
-        await Auth().googleSignIn().then((_) {
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()),
-              (route) => false);
-        });
-      },
-      //icon: Image.asset('./assets/images/google_logo.png'),
-      child: Text(
-        'Sign in with Google',
-        style: TextStyle(color: Colors.grey, fontSize: 16),
-      ),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.white,
+    return Center(
+      child: ElevatedButton.icon(
+        onPressed: () async {
+          await Auth().googleSignIn().then((_) {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfilePage()),
+                (route) => false);
+          });
+        },
+        icon: Image.asset('./assets/images/google_logo.png'),
+        label: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Text(
+            'Sign in with Google',
+            style: TextStyle(color: Colors.grey, fontSize: 15),
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.white,
+        ),
       ),
     );
   }

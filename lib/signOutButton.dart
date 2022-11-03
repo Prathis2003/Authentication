@@ -3,6 +3,7 @@ import 'package:authentication/services/auth.dart';
 import 'package:flutter/material.dart';
 
 import 'SignIn.dart';
+import 'main.dart';
 
 class SignOutButton extends StatelessWidget {
   const SignOutButton({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class SignOutButton extends StatelessWidget {
       onPressed: () {
         Auth().googleSignOut().then((_) => Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const SignInButton()),
+            MaterialPageRoute(builder: (context) => const MyApp()),
             (route) => false));
       },
       icon: Icon(
@@ -22,9 +23,9 @@ class SignOutButton extends StatelessWidget {
       ),
       label: Text(
         "Sign out",
-        style: TextStyle(color: Colors.grey),
       ),
-      style: ElevatedButton.styleFrom(primary: Colors.white),
+      style: ElevatedButton.styleFrom(
+          primary: Colors.white, onPrimary: Colors.grey),
     );
   }
 }

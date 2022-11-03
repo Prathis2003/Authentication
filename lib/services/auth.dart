@@ -25,7 +25,6 @@ class Auth {
     prefs.setString('uid', user.email as String);
     prefs.setString('displayName', user.displayName as String);
     prefs.setString('photoUrl', user.photoURL as String);
-    print(prefs.get('uid'));
   }
 
   Future googleSignOut() async {
@@ -37,6 +36,5 @@ class Auth {
     await firebaseAuth.signOut().then((_) {
       GoogleSignIn().signOut();
     });
-    print(prefs.get('uid'));
   }
 }

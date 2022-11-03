@@ -13,16 +13,21 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Profile"),
       ),
-      body: Column(
-        children: [
-          CircleAvatar(
-            backgroundImage: NetworkImage(SignInPage.photoUrl.toString()),
-            radius: 60,
+      body: Center(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage: NetworkImage(SignInPage.photoUrl.toString()),
+                radius: 60,
+              ),
+              Text(SignInPage.userDisplayName.toString()),
+              Text("Email :" + SignInPage.userEmail.toString()),
+              SignOutButton(),
+            ],
           ),
-          Text(SignInPage.userDisplayName.toString()),
-          Text("Email :" + SignInPage.userEmail.toString()),
-          SignOutButton(),
-        ],
+        ),
       ),
     );
   }

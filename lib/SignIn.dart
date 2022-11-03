@@ -28,9 +28,7 @@ class _SignInPageState extends State<SignInPage> {
     } else {
       isUserLoggedIn = false;
     }
-    setState(() {
-      print(isUserLoggedIn);
-    });
+    setState(() {});
   }
 
   @override

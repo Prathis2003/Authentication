@@ -18,12 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
-      home: SafeArea(
-        
-        child: Scaffold(
-          body: SignInButton(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Auth'),
+          centerTitle: true,
         ),
+        body: const SignInPage(),
       ),
     );
   }
